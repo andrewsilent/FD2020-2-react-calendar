@@ -1,0 +1,114 @@
+.main {
+  min-height: 100vh;
+  background: #ffffff url("../img/bg.jpg") center center no-repeat;
+  position: relative;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.modal-calendar {
+  background-color: #ffffff;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  border: 5px solid #009991;
+}
+
+.single-day,
+.single-month {
+  flex-grow: 1;
+  min-height: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.single-day {
+  text-transform: uppercase;
+  background-color: #38cec4;
+  color: #ffffff;
+}
+
+.single-day .day-of-week {
+  font: 300 1.5rem/1.5 "Arial", sans-serif;
+}
+
+.single-day .day-of-week,
+.single-month .month {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.single-day .day {
+  font: 400 7rem/1.5 "Arial", sans-serif;
+}
+
+.single-month .month {
+  font: 700 1.5rem/1.5 "Arial", sans-serif;
+  color: #009991;
+  text-transform: uppercase;
+}
+
+.day-of-week-list,
+.day-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 20px;
+  justify-content: space-around;
+}
+
+.day-of-week-list {
+  color: #eb1b57;
+  text-transform: uppercase;
+}
+
+.day-of-week-list .day-of-week,
+.day-list .day {
+  font: 700 0.85rem/1.25 "Arial", sans-serif;
+  padding: 10px;
+  min-width: 35px;
+  text-align: center;
+}
+
+.day-list .day {
+  color: #b7b7b7;
+}
+
+.day-list .current-day {
+  color: #eb1b57;
+  position: relative;
+}
+
+.day-list .current-day::before {
+  content: "";
+  display: block;
+  border: 3px solid #eb1b57;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.day-list .prev-month,
+.day-list .next-month {
+  font-size: 0;
+}
