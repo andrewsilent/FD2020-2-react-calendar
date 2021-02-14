@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import DayOfWeekList from "../DayOfWeekList";
 import DayList from "../DayList";
+import MonthList from "../MonthList";
 
-class SingleMonth extends Component {
+class SelectedMonth extends Component {
   render() {
     return (
-      <div className="single-month">
-        <h2 className="month">February 2020</h2>
+      <div className="selected-month">
+        <MonthList />
         <DayOfWeekList />
         <DayList />
       </div>
@@ -14,4 +15,4 @@ class SingleMonth extends Component {
   }
 }
 
-export default SingleMonth;
+export default SelectedMonth;

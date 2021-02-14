@@ -28,8 +28,8 @@
   border: 5px solid #009991;
 }
 
-.single-day,
-.single-month {
+.selected-day,
+.selected-month {
   flex-grow: 1;
   min-height: 300px;
   min-width: 300px;
@@ -39,30 +39,52 @@
   align-items: center;
 }
 
-.single-day {
+.selected-day {
   text-transform: uppercase;
   background-color: #38cec4;
   color: #ffffff;
 }
 
-.single-day .day-of-week {
+.selected-day .day-of-week {
   font: 300 1.5rem/1.5 "Arial", sans-serif;
 }
 
-.single-day .day-of-week,
-.single-month .month {
+.selected-day .day-of-week,
+.selected-month .month,
+.selected-month .prev-month,
+.selected-month .next-month {
   margin-top: 30px;
   margin-bottom: 15px;
+  align-self: center;
 }
 
-.single-day .day {
+.selected-month .prev-month,
+.selected-month .next-month {
+  text-align: center;
+  align-self: center;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.display-none {
+  display: none;
+}
+
+.selected-day .day {
   font: 400 7rem/1.5 "Arial", sans-serif;
 }
 
-.single-month .month {
+.selected-month .month-list {
+  display: flex;
+  width: 100%;
+}
+
+.selected-month .month {
   font: 700 1.5rem/1.5 "Arial", sans-serif;
   color: #009991;
   text-transform: uppercase;
+  text-align: center;
+  flex-grow: 1;
 }
 
 .day-of-week-list,
@@ -87,12 +109,21 @@
   text-align: center;
 }
 
-.day-list .day {
+.day-list .day span {
   color: #b7b7b7;
+  cursor: pointer;
+  transition: color 0.3s ease 0s;
+}
+
+.day-list .day span:hover {
+  color: #eb1b57;
+}
+
+.day-list .current-day span {
+  color: #eb1b57;
 }
 
 .day-list .current-day {
-  color: #eb1b57;
   position: relative;
 }
 

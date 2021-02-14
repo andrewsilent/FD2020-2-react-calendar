@@ -1,44 +1,60 @@
 import React, { Component } from "react";
+import Day from "../Day";
 
 class DayList extends Component {
+  // ***********************************************************************************************************
+  // Вся эта логика переедет в другое место (на верхний уровень), когда начну внедрять возможность выбора месяца
+  // ***********************************************************************************************************
+  getStart(someDate = new Date()) {
+    const local = new Date(someDate); // immutable local date
+    const day = new Date(local.setDate(1)); // first day of current month
+    return new Date(day.setDate(-day.getDay() + day.getDate())); // get sunday
+  }
+
+  getFinish(someDate = new Date()) {
+    const day = new Date(someDate);
+    const firstDayOfNextMonth = new Date(
+      new Date(day.setMonth(day.getMonth() + 1)).setDate(1)
+    );
+    return new Date(
+      firstDayOfNextMonth.setDate(
+        6 - firstDayOfNextMonth.getDay() + firstDayOfNextMonth.getDate()
+      )
+    ); // get saturday
+  }
+
+  monthArray(someDate = new Date()) {
+    const start = this.getStart(someDate);
+    const finish = this.getFinish(someDate);
+    const monthArray = [];
+    let day = start;
+    monthArray.push(this.getStart(someDate)); // some reason if i push 'start' or 'day', pushed element turns into next day, not start day
+    while (day < finish) {
+      monthArray.push(day);
+      day = new Date(day.setDate(day.getDate() + 1));
+    }
+    return monthArray;
+  }
+
+  getClassName(element) {
+    if (element.getDate() === new Date().getDate()) {
+      return `day current-day`;
+    }
+    return `day`;
+  }
+
   render() {
     return (
       <ul className="day-list">
-        <li className="day">1</li>
-        <li className="day">2</li>
-        <li className="day">3</li>
-        <li className="day">4</li>
-        <li className="day">5</li>
-        <li className="day">6</li>
-        <li className="day">7</li>
-        <li className="day">8</li>
-        <li className="day">9</li>
-        <li className="day">10</li>
-        <li className="day">11</li>
-        <li className="day current-day">12</li>
-        <li className="day">13</li>
-        <li className="day">14</li>
-        <li className="day">15</li>
-        <li className="day">16</li>
-        <li className="day">17</li>
-        <li className="day">18</li>
-        <li className="day">19</li>
-        <li className="day">20</li>
-        <li className="day">21</li>
-        <li className="day">22</li>
-        <li className="day">23</li>
-        <li className="day">24</li>
-        <li className="day">25</li>
-        <li className="day">26</li>
-        <li className="day">27</li>
-        <li className="day">28</li>
-        <li className="day next-month">1</li>
-        <li className="day next-month">2</li>
-        <li className="day next-month">3</li>
-        <li className="day next-month">4</li>
-        <li className="day next-month">5</li>
-        <li className="day next-month">6</li>
-        <li className="day next-month">7</li>
+        {this.monthArray().map((element) => {
+          return (
+            <li key={new Date(element).getTime()} className={this.getClassName(element)}>
+              <span>
+                <Day date={element.getDate()} />
+              </span>
+            </li>
+          );
+        })}
       </ul>
     );
   }

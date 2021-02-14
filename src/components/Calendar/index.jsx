@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import SingleDay from "../SingleDay";
-import SingleMonth from "../SingleMonth";
+import SelectedDate from "../SelectedDate";
+import SelectedMonth from "../SelectedMonth";
 
 class Calendar extends Component {
   render() {
     return (
       <div className="modal-calendar">
-        <SingleDay />
-        <SingleMonth />
+        <SelectedDate />
+        <SelectedMonth />
       </div>
     );
   }
