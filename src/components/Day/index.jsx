@@ -5,9 +5,20 @@ class Day extends Component {
     super(props);
   }
 
+  getClassName = () => {
+    if (this.props.date === new Date().getDate()) {
+      return `day current-day`;
+    }
+    return `day`;
+  };
+
   render() {
     const { date } = this.props;
-    return <>{date}</>;
+    return (
+      <li className={this.getClassName()}>
+        <span>{date}</span>
+      </li>
+    );
   }
 }
 

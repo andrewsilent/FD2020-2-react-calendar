@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class MonthList extends Component {
+class Month extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,4 +36,4 @@ class MonthList extends Component {
   }
 }
 
-export default MonthList;
+export default Month;

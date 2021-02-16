@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DayOfWeek from "../DayOfWeek";
 
 class DayOfWeekList extends Component {
   constructor(props) {
@@ -13,11 +14,7 @@ class DayOfWeekList extends Component {
     return (
       <ul className="day-of-week-list">
         {dayOfWeekList.map((element, index) => {
-          return (
-            <li key={index} className="day-of-week">
-              {element}
-            </li>
-          );
+          return <DayOfWeek key={index} dayOfWeek={element} />;
         })}
       </ul>
     );

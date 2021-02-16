@@ -36,23 +36,12 @@ class DayList extends Component {
     return monthArray;
   }
 
-  getClassName(element) {
-    if (element.getDate() === new Date().getDate()) {
-      return `day current-day`;
-    }
-    return `day`;
-  }
-
   render() {
     return (
       <ul className="day-list">
         {this.monthArray().map((element) => {
           return (
-            <li key={new Date(element).getTime()} className={this.getClassName(element)}>
-              <span>
-                <Day date={element.getDate()} />
-              </span>
-            </li>
+            <Day key={new Date(element).getTime()} date={element.getDate()} />
           );
         })}
       </ul>
