@@ -60,6 +60,8 @@
 
 .selected-month .prev-month,
 .selected-month .next-month {
+  font: 400 1.5rem/1.5 "Arial", sans-serif;
+  color: #009991;
   text-align: center;
   align-self: center;
   flex-grow: 1;
@@ -84,7 +86,6 @@
   color: #009991;
   text-transform: uppercase;
   text-align: center;
-  flex-grow: 1;
 }
 
 .day-of-week-list,
@@ -119,6 +120,10 @@
 
 .day-list .day span:hover {
   color: #eb1b57;
+}
+
+.day-list .another span {
+  color: #e0e0e0;
 }
 
 .day-list .current span,

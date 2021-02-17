@@ -9,12 +9,30 @@ class SelectedMonth extends Component {
   }
 
   render() {
-    const { selectedDate, selectNewDate } = this.props;
+    const {
+      daysArray,
+      currentDate,
+      selectedDate,
+      relativeDate,
+      selectNewDate,
+      monthPagination,
+    } = this.props;
     return (
       <div className="selected-month">
-        <Month />
+        <Month
+          daysArray={daysArray}
+          selectedDate={selectedDate}
+          relativeDate={relativeDate}
+          monthPagination={monthPagination}
+        />
         <DayOfWeekList />
-        <DayList selectedDate={selectedDate} selectNewDate={selectNewDate} />
+        <DayList
+          daysArray={daysArray}
+          currentDate={currentDate}
+          selectedDate={selectedDate}
+          relativeDate={relativeDate}
+          selectNewDate={selectNewDate}
+        />
       </div>
     );
   }

@@ -6,12 +6,12 @@ class Day extends Component {
   }
 
   getClassName = () => {
-    const { date, selectedDate } = this.props;
+    const { date, selectedDate, currentDate, relativeDate } = this.props;
     let classnames = [];
     classnames.push("day");
     if (
-      date.getDate() === new Date().getDate() &&
-      date.getMonth() === new Date().getMonth()
+      date.getDate() === currentDate.getDate() &&
+      date.getMonth() === currentDate.getMonth()
     ) {
       classnames.push("current");
     }
@@ -21,7 +21,9 @@ class Day extends Component {
     ) {
       classnames.push("selected");
     }
-
+    if (date.getMonth() !== relativeDate.getMonth()) {
+      classnames.push("another");
+    }
     return classnames.join(" ");
   };
 

@@ -18,19 +18,19 @@ class Month extends Component {
         "November",
         "December",
       ],
-      date: new Date(),
     };
   }
 
   render() {
-    const { month, date } = this.state;
+    const { month } = this.state;
+    const { selectedDate, monthPagination, relativeDate } = this.props;
     return (
       <div className="month-list">
-        <div className="prev-month display-none">prev</div>
+        <div className="prev-month" onClick={()=>monthPagination(-1)}>{`<`}</div>
         <h2 className="month">
-          {month[date.getMonth()]} {date.getFullYear()}
+          {month[relativeDate.getMonth()]} {relativeDate.getFullYear()}
         </h2>
-        <div className="next-month display-none">next</div>
+        <div className="next-month" onClick={()=>monthPagination(1)}>{`>`}</div>
       </div>
     );
   }
