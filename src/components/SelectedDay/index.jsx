@@ -6,7 +6,8 @@ class SelectedDay extends Component {
   }
 
   render() {
-    return <p className="day">{this.props.date.getDate()}</p>;
+    const { selectedDate } = this.props;
+    return <p className="day">{selectedDate.getDate()}</p>;
   }
 }
 

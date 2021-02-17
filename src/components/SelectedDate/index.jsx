@@ -8,11 +8,11 @@ class SelectedDate extends Component {
   }
 
   render() {
-    const { selectedDate: date } = this.props;
+    const { selectedDate } = this.props;
     return (
       <div className="selected-day">
-        <SelectedDayOfWeek date={date} />
-        <SelectedDay date={date} />
+        <SelectedDayOfWeek selectedDate={selectedDate} />
+        <SelectedDay selectedDate={selectedDate} />
       </div>
     );
   }

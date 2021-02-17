@@ -37,11 +37,17 @@ class DayList extends Component {
   }
 
   render() {
+    const { selectedDate, selectNewDate } = this.props;
     return (
       <ul className="day-list">
         {this.monthArray().map((element) => {
           return (
-            <Day key={new Date(element).getTime()} date={element.getDate()} />
+            <Day
+              key={new Date(element).getTime()}
+              date={element}
+              selectedDate={selectedDate}
+              selectNewDate={selectNewDate}
+            />
           );
         })}
       </ul>

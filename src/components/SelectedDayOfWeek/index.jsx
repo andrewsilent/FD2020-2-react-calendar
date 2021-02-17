@@ -17,8 +17,11 @@ class SelectedDayOfWeek extends Component {
   }
 
   render() {
+    const { selectedDate } = this.props;
     const { dayOfWeekArray } = this.state;
-    return <h2 className="day-of-week">{dayOfWeekArray[this.props.date.getDay()]}</h2>;
+    return (
+      <h2 className="day-of-week">{dayOfWeekArray[selectedDate.getDay()]}</h2>
+    );
   }
 }
 

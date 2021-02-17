@@ -54,7 +54,7 @@
 .selected-month .prev-month,
 .selected-month .next-month {
   margin-top: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   align-self: center;
 }
 
@@ -93,6 +93,7 @@
   flex-wrap: wrap;
   width: 100%;
   padding: 0 20px;
+  margin-bottom: 10px;
   justify-content: space-around;
 }
 
@@ -104,12 +105,13 @@
 .day-of-week-list .day-of-week,
 .day-list .day {
   font: 700 0.85rem/1.25 "Arial", sans-serif;
-  padding: 10px;
-  min-width: 35px;
+  padding: 10px 5px;
+  min-width: 36px;
   text-align: center;
 }
 
 .day-list .day span {
+  padding: 5px;
   color: #b7b7b7;
   cursor: pointer;
   transition: color 0.3s ease 0s;
@@ -119,15 +121,16 @@
   color: #eb1b57;
 }
 
-.day-list .current-day span {
+.day-list .current span,
+.day-list .selected span {
   color: #eb1b57;
 }
 
-.day-list .current-day {
+.day-list .selected {
   position: relative;
 }
 
-.day-list .current-day::before {
+.day-list .selected::before {
   content: "";
   display: block;
   border: 3px solid #eb1b57;

@@ -6,17 +6,30 @@ class Day extends Component {
   }
 
   getClassName = () => {
-    if (this.props.date === new Date().getDate()) {
-      return `day current-day`;
+    const { date, selectedDate } = this.props;
+    let classnames = [];
+    classnames.push("day");
+    if (
+      date.getDate() === new Date().getDate() &&
+      date.getMonth() === new Date().getMonth()
+    ) {
+      classnames.push("current");
     }
-    return `day`;
+    if (
+      date.getDate() === selectedDate.getDate() &&
+      date.getMonth() === selectedDate.getMonth()
+    ) {
+      classnames.push("selected");
+    }
+
+    return classnames.join(" ");
   };
 
   render() {
-    const { date } = this.props;
+    const { date, selectNewDate } = this.props;
     return (
       <li className={this.getClassName()}>
-        <span>{date}</span>
+        <span onClick={() => selectNewDate(date)}>{date.getDate()}</span>
       </li>
     );
   }
